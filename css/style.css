@@ -1,17 +1,18 @@
 /* CSS Variables - Easy to customize */
 :root {
-    --color-primary: #8B7355;
-    --color-primary-dark: #6B5344;
-    --color-secondary: #D4C4B0;
-    --color-accent: #E8DDD4;
-    --color-text: #333333;
-    --color-text-light: #666666;
+    --color-primary: #E8919A;
+    --color-primary-dark: #D4737E;
+    --color-secondary: #F8D0D4;
+    --color-accent: #FDF0F2;
+    --color-text: #4A4A4A;
+    --color-text-light: #6B6B6B;
     --color-white: #FFFFFF;
-    --color-bg: #FDFCFB;
-    --color-bg-alt: #F5F0EB;
+    --color-bg: #FFFBFC;
+    --color-bg-alt: #FDF5F6;
+    --color-stripe: #F5C4C8;
 
-    --font-primary: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    --font-heading: 'Georgia', serif;
+    --font-primary: 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Pacifico', cursive;
 
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -87,9 +88,9 @@ img {
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-primary);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-primary-dark);
 }
 
 .nav-links {
@@ -145,26 +146,45 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-bg) 0px,
+        var(--color-bg) 20px,
+        var(--color-stripe) 20px,
+        var(--color-stripe) 40px
+    );
     padding: var(--spacing-xl) var(--spacing-md);
     padding-top: calc(var(--spacing-xl) + 60px);
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 500px;
+    background: var(--color-white);
+    border-radius: 50%;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .hero h1 {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     color: var(--color-primary-dark);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 400;
 }
 
 .hero-tagline {
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     color: var(--color-text-light);
     margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
 /* Buttons */
@@ -211,10 +231,11 @@ img {
 
 .section h2 {
     font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     color: var(--color-primary-dark);
     text-align: center;
     margin-bottom: var(--spacing-lg);
+    font-weight: 400;
 }
 
 .section-intro {
@@ -252,7 +273,9 @@ img {
 
 .price-category h3 {
     font-family: var(--font-heading);
-    color: var(--color-primary);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-primary-dark);
     margin-bottom: var(--spacing-sm);
     padding-bottom: var(--spacing-xs);
     border-bottom: 2px solid var(--color-secondary);
@@ -383,7 +406,9 @@ img {
 
 .contact-item h3 {
     font-family: var(--font-heading);
-    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-primary-dark);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -396,11 +421,12 @@ img {
     background: var(--color-primary-dark);
     color: var(--color-white);
     text-align: center;
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-lg) 0;
 }
 
 .footer p {
     opacity: 0.9;
+    font-size: 0.9rem;
 }
 
 /* Mobile Navigation */
@@ -435,7 +461,14 @@ img {
     }
 
     .hero {
-        min-height: 80vh;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: var(--spacing-lg);
+    }
+
+    .hero-content {
+        max-width: 320px;
+        padding: var(--spacing-lg) var(--spacing-md);
     }
 
     .section {
